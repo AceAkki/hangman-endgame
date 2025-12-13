@@ -1,0 +1,95 @@
+header {
+  color: var(--clr-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 3rem 2rem;
+}
+
+main {
+  margin: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.status-text {
+  background: var(--clr-success);
+  text-align: center;
+  padding: 2rem 4rem;
+  border-radius: 4px;
+}
+
+.languages-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.lang {
+  padding: 0.5rem 0.9rem;
+  border-radius: 1rem;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.puzzle-txt-wrap {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.puzzle-char {
+  background: var(--clr-primary-light);
+  color: var(--clr-secondary);
+  padding: 1.2rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  border-radius: 5px;
+  border-bottom: 5px solid var(--clr-neutral);
+}
+
+.keyboard-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 40vw;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.char-key {
+  width: 3rem;
+  height: 3rem;
+  text-transform: capitalize;
+  background: var(--clr-neutral);
+  border: 1px solid var(--clr-primary-light);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.newgame-btn {
+  background: var(--clr-action);
+  padding: 1rem 3rem;
+  font-size: 1.2rem;
+  font-family: "Source Code Pro", monospace;
+  color: var(--clr-secondary);
+  border: 1px solid var(--clr-primary-light);
+  border-radius: 5px;
+}
+
+@media screen and (min-width: 1080px) {
+  .status-text {
+    padding: 3rem 7rem;
+    max-width: 50vw;
+  }
+
+  .languages-chips {
+    max-width: 50vw;
+    padding: 1rem 7rem;
+  }
+}

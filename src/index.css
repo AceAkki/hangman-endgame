@@ -1,0 +1,22 @@
+:root {
+  --clr-primary :#1B211A;
+  --clr-secondary : #E4E4F4;
+  --clr-primary-light: #323232;
+  --clr-action: #858AE3;
+
+  --clr-neutral : #FBDA7C;
+  --clr-success : #00C489;
+  --clr-warning :#FF7488;
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+   font-family: "Source Code Pro", monospace;
+   background: var(--clr-primary);
+}
