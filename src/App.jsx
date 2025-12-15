@@ -8,7 +8,7 @@ import clsx from 'clsx';
 
 function App() {
   let [currentWord, setCurrentWord] = useState("react");
-  let [guessWord, setGuessWord] = useState([]);
+  let [guessLetter, setGuessLetter] = useState([]);
   let [keyboardKeys, setKeyboardKeys] = useState(
     Array.from({ length: 26 }, (_, i) => String.fromCharCode(97 + i)).map(letter => {
       return {id:nanoid(), class:{
@@ -29,7 +29,7 @@ function App() {
 
   function loadPuzzle() {
     let puzzleWord = Array.from(currentWord).map(char => {
-      return <span className={clsx('puzzle-char', {'hidden':!guessWord.includes(char)})} key={nanoid()}> {char} </span>
+      return <span className={clsx('puzzle-char', {'hidden':!guessLetter.includes(char)})} key={nanoid()}> {char} </span>
     })
     return puzzleWord
   }
@@ -39,7 +39,7 @@ function App() {
       return obj.txt === letter ? {...obj, class:{'correct-guess': currentWord.includes(letter),
         'wrong-guess': !currentWord.includes(letter)}} : obj
       }))
-    setGuessWord(oldword => oldword.includes(letter) ? oldword : [ ...oldword, letter]);
+    setGuessLetter(oldword => oldword.includes(letter) ? oldword : [ ...oldword, letter]);
   }
 
   function createKeyboard() {
@@ -56,6 +56,9 @@ function App() {
     let styles = {background:lang.background, color:lang.color}
     return <div key={lang.name} className='lang'style={styles} aria-description={lang.text} onMouseEnter={flipEnter} onMouseLeave={() => flipLeave(lang)}> {lang.name} </div>
   })
+  
+  let wrongGuessCount = guessLetter.filter(letter => !currentWord.includes(letter)).length;
+  console.log(wrongGuessCount)
 
   return (
     <>
