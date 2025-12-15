@@ -16,6 +16,10 @@ function App() {
                     'wrong-guess': false,
                   }, txt:letter }}));
 
+
+  let wrongGuessCount = guessLetter.filter(letter => !currentWord.includes(letter)).length;
+  console.log(wrongGuessCount)
+
   function flipEnter(event) {
     let {backgroundColor, color} = window.getComputedStyle(event.target);
     event.target.style.backgroundColor = color;
@@ -51,14 +55,15 @@ function App() {
    })
    return keys
   }
+  
+  
 
-  let langChips = languages.map(lang => {
+  let langChips = languages.map((lang,index) => {
     let styles = {background:lang.background, color:lang.color}
-    return <div key={lang.name} className='lang'style={styles} aria-description={lang.text} onMouseEnter={flipEnter} onMouseLeave={() => flipLeave(lang)}> {lang.name} </div>
+    return <div key={lang.name} className={clsx('lang', {'lost':wrongGuessCount >= index + 1})} style={styles} aria-description={lang.text} onMouseEnter={flipEnter} onMouseLeave={() => flipLeave(lang)}> {lang.name} </div>
   })
   
-  let wrongGuessCount = guessLetter.filter(letter => !currentWord.includes(letter)).length;
-  console.log(wrongGuessCount)
+ 
 
   return (
     <>
